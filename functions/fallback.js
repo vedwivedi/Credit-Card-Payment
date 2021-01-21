@@ -29,7 +29,6 @@ exports.fallback = async function (context, event, callback) {
     Say = false;
     Listen = false;
     Remember.task_fail_counter = 0;
-    Remember.agent_transfer=true;
     Redirect = 'task://agent_transfer';
   }
   else {

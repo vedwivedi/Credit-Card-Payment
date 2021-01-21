@@ -19,7 +19,6 @@ exports.collect_cvv =async function(context, event, callback) {
     Remember.task_fail_counter = Memory.task_fail_counter + 1;
   
     Remember.repeat = false;
-    Remember.transfer_agent=false;
     Remember.from_task="collect_cvv";
   // this update from VS code.
     

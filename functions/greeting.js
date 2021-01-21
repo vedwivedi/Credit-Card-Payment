@@ -19,8 +19,8 @@ exports.greeting =async function(context, event, callback) {
     Remember.task_fail_counter = Memory.task_fail_counter + 1;
   
     Remember.repeat = false;
-    Remember.transfer_agent=false;
     Remember.from_task="greeting";
+    Remember.agent_transfer=false;
   // this update from VS code.
       
     let collect_question="we will need your credit card information. Say your credit card number or enter it using your telepnone keypad."; // Default 
