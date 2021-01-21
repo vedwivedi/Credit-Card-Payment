@@ -49,7 +49,7 @@ exports.check_exp_date = async function (context, event, callback) {
         Tasks = ['yes_no', 'agent_transfer'];
       }
       else {
-        if (Memory.task_fail_counter < 3) {
+        if (Memory.task_fail_counter <= 3) {
           Remember.say_err_msg = `The expiration date you provided <say-as interpret-as="date" format="ym">${formatted_date}</say-as> is not valid. you can also enter
             Two digits for the month and four digits for the year, , ,
             Example, a date of March 2026 should be entered as 03, for the month and  2 0 2 6 for the year`;
