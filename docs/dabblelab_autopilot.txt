@@ -1,0 +1,11 @@
+https://github.com/dabblelab/twilio-cli-autopilot-plugin
+
+
+SID SKc48365bd58a8add751fae1134d200bc9
+
+API Key SKc48365bd58a8add751fae1134d200bc9
+
+visa 5105105105105100
+    
+Amex 378282246310005
+    
