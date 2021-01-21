@@ -46,7 +46,7 @@ exports.check_cvv = async function (context, event, callback) {
 
         }
         else {
-            Remember.say_err_msg = `The C V V you entered <say-as interpret-as='digits'>${cvv}</say-as>,,, is not correct, Please provide the C V V again.`;
+            Remember.say_err_msg = `The C V V you entered <say-as interpret-as='digits'>${cvv}</say-as>,,, is not correct, Please say or enter it using your telepnone keypad.`;
             Redirect = "task://collect_cvv";
         }
 

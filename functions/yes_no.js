@@ -33,7 +33,8 @@ exports.yes_no = async function (context, event, callback) {
           Redirect = "task://collect_expiration_date";
           Say = false;
           Remember.Card_Date = '';
-          Remember.say_err_msg = "";
+          Remember.say_err_msg = `say your card expiration date, example , , you can say march 2026. you can also enter Two digits for the month and four digits for the year, , , 
+          Example, a date of March 2026 should be entered as 03, for the month and 2 0 2 6 for the year.`;
           break;
 
         } else {
@@ -45,7 +46,7 @@ exports.yes_no = async function (context, event, callback) {
 
       case 'cvv_check':
         if (event.Field_yes_no_Value === 'Yes') {
-          Say = "Alright! your cvv is validated successfuly.";
+          Say = false;
           Remember.say_err_msg = "";
           Remember.task_fail_counter = 0;
 
@@ -57,6 +58,7 @@ exports.yes_no = async function (context, event, callback) {
           Redirect = "task://collect_cvv";
           Remember.card_cvv = '';
           Remember.digits_request_task = 'cvv';
+          Remember.say_err_msg = ``;
 
           break;
 
