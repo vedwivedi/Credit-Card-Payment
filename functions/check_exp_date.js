@@ -42,7 +42,8 @@ exports.check_exp_date = async function (context, event, callback) {
         Prompt = `Is that correct?`;
 
         Say += Prompt;
-        Remember.Card_Date = formatted_date;
+        Remember.Card_Date =exp_date.substring(0, 2) + exp_date.substring((exp_date.length - 2), exp_date.length) ;
+        
         Remember.question = 'exp_date_check';
         Listen = true;
         Tasks = ['yes_no', 'agent_transfer'];
