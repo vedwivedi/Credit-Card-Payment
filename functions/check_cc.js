@@ -31,7 +31,7 @@ exports.check_cc = async function (context, event, callback) {
         if (isValid == true) {
             Remember.isValid = isValid;
             Remember.card_number = CC;
-            Remember.card_type=card_type;
+            Remember.card_type=cardType;
             Remember.say_err_msg = "";
             Remember.task_fail_counter = 0;
             Redirect = "task://collect_expiration_date";
