@@ -113,9 +113,6 @@
                         "say" : {
                             "speech" : "Please hold the line while I transfer you to an agent."
                         }
-                    },
-                    {
-                        "remember" : { "transfer_agent" : true }
                     }
                 ]
             },
@@ -133,9 +130,6 @@
                 "actions" : [
                     {
                         "redirect" : "https://credit-card-payment-7830-dev.twil.io/index"
-                    },
-                    {
-                        "remember" : { "agent_transfer" : true }
                     }
                 ]
             },
