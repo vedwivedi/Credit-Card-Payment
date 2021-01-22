@@ -48,7 +48,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     }
                 ]
             },
@@ -129,7 +129,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     }
                 ]
             },
@@ -146,7 +146,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     }
                 ]
             },
@@ -158,7 +158,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     }
                 ]
             },
@@ -175,7 +175,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     }
                 ]
             },
@@ -187,7 +187,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     }
                 ]
             },
@@ -209,7 +209,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     }
                 ]
             },
@@ -315,7 +315,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     }
                 ]
             },
@@ -327,7 +327,7 @@
             "actions" : {
                 "actions" : [
                     {
-                        "redirect" : "https://credit-card-payment-2207.twil.io/index"
+                        "redirect" : "https://credit-card-payment-2207-dev.twil.io/index"
                     },
                     {
                         "remember" : {
