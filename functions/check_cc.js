@@ -73,7 +73,7 @@ const validateCC = (CC) => {
         console.log("numberValidation: " + JSON.stringify(numberValidation));
 
         if (CC.length === 0) {
-            say_err_msg = "you did not say or enter any credit card number, ";
+            say_err_msg = "you did not say or enter any the card number, ";
             isValid = false;  //failure
             console.log("say_err_msg:" + say_err_msg);
         }

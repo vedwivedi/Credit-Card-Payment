@@ -23,7 +23,7 @@ exports.greeting =async function(context, event, callback) {
     Remember.agent_transfer=false;
   // this update from VS code.
       
-    let collect_question="we will need your credit card information. Say your credit card number or enter it using your telepnone keypad."; // Default 
+    let collect_question="we will need your card information. Say your card number or enter it using your telepnone keypad."; // Default 
     if(Memory.say_err_msg!=undefined)
     collect_question=Memory.say_err_msg;  
     console.log("say_err_msg: "+Memory.say_err_msg);
@@ -54,7 +54,7 @@ exports.greeting =async function(context, event, callback) {
 
     }
     else{
-      Say="you have not selected Credit Card method to pay";
+      Say="you have not selected Credit or Debit Card option to pay";
     }
      
     //End of your code.

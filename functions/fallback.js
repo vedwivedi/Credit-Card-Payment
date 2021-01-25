@@ -36,7 +36,7 @@ exports.fallback = async function (context, event, callback) {
     switch (from_task) {
       case 'greeting':
         {
-          Remember.say_err_msg = `I'm sorry, I didn't quite get that. Say your credit card number or enter it using your telepnone keypad.`;
+          Remember.say_err_msg = `I'm sorry, I didn't quite get that. Say your card number or enter it using your telepnone keypad.`;
           Listen = false;
           break;
         }

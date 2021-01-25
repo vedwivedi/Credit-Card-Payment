@@ -52,7 +52,7 @@ exports.collect_cvv =async function(context, event, callback) {
 
     }
     else{
-      Say="you have not selected Credit Card method to pay";
+      Say="you have not selected Credit or debit Card option to pay";
     }
      
     //End of your code.
