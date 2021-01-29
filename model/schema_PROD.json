@@ -137,6 +137,46 @@
             "samples" : [
                 {
                     "language" : "en-US",
+                    "taggedText" : "I prefer to talk to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Let me connect to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to somebody"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "talk to somebody"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Please connect me to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to talk to an operator"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I want to to talk to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "transfer me to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "I'd like to talk to an agent"
+                },
+                {
+                    "language" : "en-US",
+                    "taggedText" : "Operator"
+                },
+                {
+                    "language" : "en-US",
                     "taggedText" : "agent"
                 }
             ]
