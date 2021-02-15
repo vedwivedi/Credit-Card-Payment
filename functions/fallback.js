@@ -53,7 +53,7 @@ exports.fallback = async function (context, event, callback) {
           break;
         }
       default:
-        Say = `I'm sorry, I didn't quite get that. Please Say again again.`;
+        Say = `I'm sorry, I didn't quite get that. Please Say again.`;
         Listen = false;
         break;
     }
