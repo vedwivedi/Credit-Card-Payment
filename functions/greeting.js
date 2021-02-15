@@ -15,8 +15,8 @@ exports.greeting =async function(context, event, callback) {
   
     if(Memory.task_fail_counter===undefined) // new line add
      Remember.task_fail_counter=0;
-    else
-    Remember.task_fail_counter = Memory.task_fail_counter + 1;
+    // else
+    // Remember.task_fail_counter = Memory.task_fail_counter + 1;
   
     Remember.repeat = false;
     Remember.from_task="greeting";
@@ -36,8 +36,7 @@ exports.greeting =async function(context, event, callback) {
           {
             "question": collect_question,
             "voice_digits": {
-              "finish_on_key": "#",
-              "num_digits": 16
+              "finish_on_key": "#"
             },
             "name": "credit_card_num",
             "type": "Twilio.NUMBER_SEQUENCE"

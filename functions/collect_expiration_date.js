@@ -13,11 +13,7 @@ exports.collect_expiration_date =async function(context, event, callback) {
     
     const Memory = JSON.parse(event.Memory);
   
-    if(Memory.task_fail_counter===undefined) // new line add
-     Remember.task_fail_counter=0;
-    else
-    Remember.task_fail_counter =Number(Memory.task_fail_counter) + 1;
-  
+    
     Remember.repeat = false;
     Remember.from_task = "collect_expiration_date";
   // this update from VS code.
