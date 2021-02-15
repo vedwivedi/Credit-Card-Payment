@@ -33,12 +33,18 @@ exports.check_exp_date = async function (context, event, callback) {
       let StrYear = "";
 
       console.log("formatted_date:" + formatted_date);
-      if (exp_date.length === 6) {
+      if (exp_date.toString().length === 6) {
         StrMonth = exp_date.substring(0, 2);
         StrYear = exp_date.substring(2, exp_date.length);
 
-        formatted_date = StrYear + '-' + StrMonth;
+        formatted_date = StrYear.toString() + '-' + StrMonth.toString();
 
+      }
+      else if(exp_date.toString().length < 6){
+        StrMonth = 0;
+        StrYear = 0;
+
+        formatted_date = StrYear.toString() + '-' + StrMonth.toString();
       }
       else {
         let D_Date = new Date(exp_date);
