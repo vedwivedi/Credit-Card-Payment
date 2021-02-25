@@ -78,7 +78,7 @@ exports.check_exp_date = async function (context, event, callback) {
         formatted_date = StrYear + '-' + StrMonth;
       }
       else if (!(CurrentInput.includes(StrYear))) {       //Input  Example: November 26th
-        StrYear = '20' + StrDay; 
+        StrYear = '20' + StrDay;
         formatted_date = StrYear + '-' + StrMonth;
         console.log('CurrentInputYearNonDigit: ' + StrYear);
 
@@ -115,16 +115,16 @@ exports.check_exp_date = async function (context, event, callback) {
         Tasks = ['yes_no', 'agent_transfer'];
       }
       else {
-        if (Memory.task_fail_counter < 4) {
-          Remember.task_fail_counter = Number(Memory.task_fail_counter) + 1;
-          Remember.say_err_msg = `The expiration date you provided is not valid. you can also enter
+        // if (Memory.task_fail_counter < 4) {
+        //   Remember.task_fail_counter = Number(Memory.task_fail_counter) + 1;
+        Remember.say_err_msg = `The expiration date you provided is not valid. you can also enter
             Two digits for the month and four digits for the year, , ,
             Example, a date of March 2026 should be entered as 03, for the month and  2 0 2 6 for the year`;
-          Redirect = "task://collect_expiration_date";
-        }
-        else {
-          Redirect = "task://agent_transfer";
-        }
+        Redirect = "task://collect_expiration_date";
+        // }
+        // else {
+        //   Redirect = "task://agent_transfer";
+        // }
       }
     }
     else {
@@ -135,7 +135,16 @@ exports.check_exp_date = async function (context, event, callback) {
     }
 
     //     //End of your code.
-
+    if (Memory.task_fail_counter < 4) {
+      Remember.task_fail_counter = Number(Memory.task_fail_counter) + 1;
+    }
+    else {
+      Say = false;
+      Listen = false;
+      Remember.say_err_msg="";
+      Remember.question="";
+      Redirect = "task://agent_transfer";
+    }
 
     let RB = require(Runtime.getFunctions()['responseBuilder'].path);
     await RB.responseBuilder(Say, Listen, Remember, Collect, Tasks, Redirect, Handoff, callback);
