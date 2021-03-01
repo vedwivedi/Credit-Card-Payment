@@ -3,14 +3,17 @@ let greeting = require(functions['greeting'].path);
 let check_cc = require(functions['check_cc'].path);
 
 let collect_expiration_date = require(functions['collect_expiration_date'].path);
+let collect_expiration_date_yes_no = require(functions['collect_expiration_date_yes_no'].path);
 let check_exp_date = require(functions['check_exp_date'].path);
 
 let collect_cvv = require(functions['collect_cvv'].path);
+let collect_cvv_yes_no = require(functions['collect_cvv_yes_no'].path);
 let check_cvv = require(functions['check_cvv'].path);
 
 let yes_no = require(functions['yes_no'].path);
 let agent_transfer = require(functions['agent_transfer'].path);
 let fallback = require(functions['fallback'].path);
+let Bot_success = require(functions['Bot_success'].path);
 
 exports.handler = async (context, event, callback) => {
  
@@ -37,6 +40,12 @@ exports.handler = async (context, event, callback) => {
       console.log("CurrentTask: "+CurrentTask );      
       await collect_expiration_date.collect_expiration_date(context, event, callback);
       break;
+    } 
+    case 'collect_expiration_date_yes_no':
+    {
+      console.log("CurrentTask: "+CurrentTask );      
+      await collect_expiration_date_yes_no.collect_expiration_date_yes_no(context, event, callback);
+      break;
     }  
     case 'check_exp_date':
     {
@@ -49,6 +58,12 @@ exports.handler = async (context, event, callback) => {
       console.log("CurrentTask: "+CurrentTask );      
       await collect_cvv.collect_cvv(context, event, callback);
       break;
+    } 
+    case 'collect_cvv_yes_no':
+    {
+      console.log("CurrentTask: "+CurrentTask );      
+      await collect_cvv_yes_no.collect_cvv_yes_no(context, event, callback);
+      break;
     }  
     case 'check_cvv':
     {
@@ -60,6 +75,12 @@ exports.handler = async (context, event, callback) => {
     {
       console.log("CurrentTask: "+CurrentTask );
       await yes_no.yes_no(context, event, callback);
+      break;
+    } 
+    case 'Bot_success':
+    {
+      console.log("CurrentTask: "+CurrentTask );
+      await Bot_success.Bot_success(context, event, callback);
       break;
     } 
     case 'agent_transfer':

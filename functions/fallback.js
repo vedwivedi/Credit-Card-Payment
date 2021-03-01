@@ -19,13 +19,13 @@ exports.fallback = async function (context, event, callback) {
   console.log("Memory: " + JSON.stringify(Memory));
   const from_task = Memory.from_task;
   console.log('count: ' + Number(Memory.task_fail_counter));
-  // if ((Memory.task_fail_counter === undefined)) // new line add
-  //   Remember.task_fail_counter = 1;
-  // else
-  //   Remember.task_fail_counter = Number(Memory.task_fail_counter) + 1;
+  if ((Memory.task_fail_counter === undefined)) // new line add
+    Remember.task_fail_counter = 0;
+  else
+    Remember.task_fail_counter = Number(Memory.task_fail_counter) + 1;
   let counter = Number(Memory.task_fail_counter);
   console.log('Memory.task_fail_counter: ' + counter);
-  if (counter > 2) {
+  if (counter > 3) {
     Say = false;
     Listen = false;
     Remember.task_fail_counter = 0;
@@ -53,7 +53,7 @@ exports.fallback = async function (context, event, callback) {
           break;
         }
       default:
-        Say = `I'm sorry, I didn't quite get that. Please Say again again.`;
+        Say = `I'm sorry, I didn't quite get that. Please Say again.`;
         Listen = false;
         break;
     }

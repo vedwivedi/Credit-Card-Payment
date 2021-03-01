@@ -13,7 +13,7 @@ exports.check_cvv = async function (context, event, callback) {
         const Memory = JSON.parse(event.Memory);
         Remember.repeat = false;
         console.log("task_fail_counter: " + Memory.task_fail_counter);
-        Remember.from_task = "collect_cvv";
+        Remember.from_task = "check_cvv";
 
         let cvv;
         try {
@@ -24,7 +24,7 @@ exports.check_cvv = async function (context, event, callback) {
             cvv = "";
         }
         if (Memory.task_fail_counter <= 3) {
-
+            Remember.task_fail_counter = Number(Memory.task_fail_counter) + 1;
             if (cvv.length === 0) {
                 Remember.say_err_msg = "you have not entered any C,V,V, number, ";
                 Redirect = "task://collect_cvv";
@@ -35,13 +35,23 @@ exports.check_cvv = async function (context, event, callback) {
                 Remember.card_cvv = cvv;
 
                 Say = `You provided <say-as interpret-as='digits'>${cvv}</say-as>. `;
-                Prompt = `Is that correct?`;
+                Prompt = `Is that correct? say yes or No. you can also press 1 for yes and 2 for no.`;
 
                 Say += Prompt;
 
                 Remember.question = 'cvv_check';
 
                 Listen = true;
+                Listen = {
+                    "voice_digits": {
+                        "num_digits": 1,
+                        "finish_on_key": "#",
+                        "redirects": {
+                            1: "task://Bot_success",
+                            2: "task://collect_cvv_yes_no"
+                        }
+                    }
+                };
                 Tasks = ['yes_no', 'agent_transfer'];
 
             }

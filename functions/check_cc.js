@@ -11,9 +11,8 @@ exports.check_cc = async function (context, event, callback) {
         let Redirect = false;
         let Handoff = false;
         console.log("check_cc initiated");
-        const Memory = JSON.parse(event.Memory);
-        Remember.task_fail_counter=Number(Memory.task_fail_counter);
-        Remember.from_task="greeting";
+        const Memory = JSON.parse(event.Memory);        
+        Remember.from_task = "greeting";
         Remember.repeat = false;
         console.log("task_fail_counter: " + Number(Memory.task_fail_counter));
         let CC = "";
@@ -25,23 +24,27 @@ exports.check_cc = async function (context, event, callback) {
         {
             CC = "";
         }
+        console.log('Entered_CCNumber: ' + CC);
+        console.log('CC_LastFour: '+ CC.substring((CC.length - 4), CC.length));
+        Remember.CC_LastFour=CC.substring((CC.length - 4), CC.length);
 
         let { isValid, cardType, say_err_msg } = validateCC(CC);
 
         if (isValid == true) {
             Remember.isValid = isValid;
             Remember.card_number = CC;
-            Remember.card_type=cardType;
+            Remember.card_type = cardType;
             Remember.say_err_msg = "";
             Remember.task_fail_counter = 0;
             Redirect = "task://collect_expiration_date";
 
         }
-        else if (isValid == false && Number(Memory.task_fail_counter) < 2) {
+        else if (isValid == false && Number(Memory.task_fail_counter) < 3) {
+            Remember.task_fail_counter = Number(Memory.task_fail_counter)+1;
             Remember.say_err_msg = say_err_msg;
             console.log('cnt:' + Memory.task_fail_counter);
             Redirect = "task://greeting";
-        } else if (Memory.task_fail_counter === 2) {            
+        } else if (Memory.task_fail_counter === 3) {
             Redirect = "task://agent_transfer";  // go to an agent
         }
         else {

@@ -11,12 +11,8 @@ exports.collect_cvv =async function(context, event, callback) {
     let Redirect = false;
     let Handoff = false;
     
-    const Memory = JSON.parse(event.Memory);
-  
-    if(Memory.task_fail_counter===undefined) // new line add
-     Remember.task_fail_counter=0;
-    else
-    Remember.task_fail_counter = Memory.task_fail_counter + 1;
+    const Memory = JSON.parse(event.Memory);  
+    
   
     Remember.repeat = false;
     Remember.from_task="collect_cvv";
