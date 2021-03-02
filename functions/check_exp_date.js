@@ -48,10 +48,16 @@ exports.check_exp_date = async function (context, event, callback) {
 
       }
       else if (exp_date.toString().length < 6) {
-        StrMonth = 0;
-        StrYear = 0;
+        // StrMonth = 0;
+        // StrYear = 0;
 
-        formatted_date = StrYear.toString() + '-' + StrMonth.toString();
+        // formatted_date = StrYear.toString() + '-' + StrMonth.toString();
+        StrMonth = exp_date.substring(0, (exp_date.length - 2));
+        StrYear = '20' + exp_date.substring((exp_date.length - 2), exp_date.length);
+
+        console.log('CurrentInputMonth: ' + StrMonth);
+        console.log('CurrentInputYear: ' + StrYear);
+        formatted_date = StrYear + '-' + StrMonth;
       }
       else {
         let D_Date = new Date(exp_date);
@@ -77,7 +83,7 @@ exports.check_exp_date = async function (context, event, callback) {
         console.log('CurrentInputYear: ' + StrYear);
         formatted_date = StrYear + '-' + StrMonth;
       }
-      else if (validDate === true && (!(CurrentInput.includes(StrYear)))) {       //Input  Example: November 26th
+      else if (validDate === true && CurrentInput.toString().length!=0 && (!(CurrentInput.includes(StrYear)))) {       //Input  Example: November 26th
         StrYear = '20' + StrDay;
         formatted_date = StrYear + '-' + StrMonth;
         console.log('CurrentInputYearNonDigit: ' + StrYear);
