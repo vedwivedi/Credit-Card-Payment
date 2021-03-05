@@ -14,7 +14,7 @@ exports.agent_transfer =async function(context, event, callback) {
     const Memory = JSON.parse(event.Memory);
   
     Remember.agent_transfer=true;
-    Say = false;
+    Say = " ";
   
     // This callback is what is returned in response to this function being invoked.
   const functions = Runtime.getFunctions();
