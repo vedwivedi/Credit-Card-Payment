@@ -10,11 +10,11 @@ exports.check_cc = async function (context, event, callback) {
         let Tasks = false;
         let Redirect = false;
         let Handoff = false;
-        console.log("check_cc initiated");
+        //console.log("check_cc initiated");
         const Memory = JSON.parse(event.Memory);        
         Remember.from_task = "greeting";
         Remember.repeat = false;
-        console.log("task_fail_counter: " + Number(Memory.task_fail_counter));
+        //console.log("task_fail_counter: " + Number(Memory.task_fail_counter));
         let CC = "";
         try {
             CC = Memory.twilio.collected_data.collect_cc.answers.credit_card_num.answer ||
@@ -24,7 +24,7 @@ exports.check_cc = async function (context, event, callback) {
         {
             CC = "";
         }
-        console.log('Entered_CCNumber: ' + CC);
+        //console.log('Entered_CCNumber: ' + CC);
         console.log('CC_LastFour: '+ CC.substring((CC.length - 4), CC.length));
         Remember.CC_LastFour=CC.substring((CC.length - 4), CC.length);
 
@@ -42,7 +42,7 @@ exports.check_cc = async function (context, event, callback) {
         else if (isValid == false && Number(Memory.task_fail_counter) < 3) {
             Remember.task_fail_counter = Number(Memory.task_fail_counter)+1;
             Remember.say_err_msg = say_err_msg;
-            console.log('cnt:' + Memory.task_fail_counter);
+            //console.log('cnt:' + Memory.task_fail_counter);
             Redirect = "task://greeting";
         } else if (Memory.task_fail_counter === 3) {
             Redirect = "task://agent_transfer";  // go to an agent
@@ -70,15 +70,15 @@ const validateCC = (CC) => {
     let isValid = false;
     let CC_LastFour = CC.substring((CC.length - 4), CC.length);
     let say_err_msg = "";
-    console.log("CC_LastFour: " + CC_LastFour);
+    //console.log("CC_LastFour: " + CC_LastFour);
     try {
         var numberValidation = valid.number(CC);
-        console.log("numberValidation: " + JSON.stringify(numberValidation));
+        //console.log("numberValidation: " + JSON.stringify(numberValidation));
 
         if (CC.length === 0) {
             say_err_msg = "you did not say or enter any the card number, ";
             isValid = false;  //failure
-            console.log("say_err_msg:" + say_err_msg);
+           // console.log("say_err_msg:" + say_err_msg);
         }
         else if (numberValidation.isValid) {
 
@@ -88,14 +88,14 @@ const validateCC = (CC) => {
             if (!(cardType === "discover" || cardType === "mastercard" || cardType === "visa")) {
                 say_err_msg = "This card is " + cardType + ", we only accept discover, mastercard or visa,, Please say or enter your card number again.";
                 isValid = false;  //failure
-                console.log("say_err_msg:" + say_err_msg);
+                //console.log("say_err_msg:" + say_err_msg);
             }
 
         }
         else {
             say_err_msg = `The card number you entered is not correct. The last four digits of the card you entered is <say-as interpret-as='digits'>${CC_LastFour}</say-as>,,,Please say or enter you card number again.`;
             isValid = false;  //failure
-            console.log("say_err_msg:" + say_err_msg);
+            //console.log("say_err_msg:" + say_err_msg);
         }
 
 
