@@ -25,7 +25,7 @@ exports.check_cc = async function (context, event, callback) {
             CC = "";
         }
         //console.log('Entered_CCNumber: ' + CC);
-        console.log('CC_LastFour: '+ CC.substring((CC.length - 4), CC.length));
+        //console.log('CC_LastFour: '+ CC.substring((CC.length - 4), CC.length));
         Remember.CC_LastFour=CC.substring((CC.length - 4), CC.length);
 
         let { isValid, cardType, say_err_msg } = validateCC(CC);
@@ -83,7 +83,7 @@ const validateCC = (CC) => {
         else if (numberValidation.isValid) {
 
             cardType = numberValidation.card.type.toLowerCase();
-            console.log("cardType: " + cardType);
+            //console.log("cardType: " + cardType);
             isValid = true;
             if (!(cardType === "discover" || cardType === "mastercard" || cardType === "visa")) {
                 say_err_msg = "This card is " + cardType + ", we only accept discover, mastercard or visa,, Please say or enter your card number again.";

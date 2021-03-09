@@ -71,9 +71,9 @@ exports.check_exp_date = async function (context, event, callback) {
         formatted_date = StrYear + '-' + StrMonth;
       }
 
-      console.log("formatted_date-4-dgts:" + formatted_date);
+      //console.log("formatted_date-4-dgts:" + formatted_date);
       let validDate = valid.expirationDate(formatted_date).isValid;
-      console.log("validDate check before exceptional case:" + validDate);
+      //console.log("validDate check before exceptional case:" + validDate);
       /// Code for 4/3 digit current input///////////
       if ((CurrentInput.length === 4 || CurrentInput.length === 3) && validDate === false) {    //Input  Example: 1125, 125
         StrMonth = CurrentInput.substring(0, (CurrentInput.length - 2));

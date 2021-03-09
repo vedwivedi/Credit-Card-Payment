@@ -21,8 +21,8 @@ exports.collect_expiration_date =async function(context, event, callback) {
     let collect_question="say your card expiration date, example  , , you can say march 2026. The month and the year."; // Default 
     if(!(Memory.say_err_msg==undefined || Memory.say_err_msg==""))
     collect_question=Memory.say_err_msg;  
-    console.log("say_err_msg: "+Memory.say_err_msg);
-    console.log("collect_question: "+collect_question);
+    // console.log("say_err_msg: "+Memory.say_err_msg);
+    // console.log("collect_question: "+collect_question);
    
     if ( Memory.payment_method === 'credit card' ) {
       Collect = {

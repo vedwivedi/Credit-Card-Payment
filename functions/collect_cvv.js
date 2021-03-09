@@ -21,8 +21,8 @@ exports.collect_cvv =async function(context, event, callback) {
     let collect_question="Say or Enter your C V V number located at the back of your card."; // Default 
     if(!(Memory.say_err_msg==undefined || Memory.say_err_msg==""))
     collect_question=Memory.say_err_msg;  
-    console.log("say_err_msg: "+Memory.say_err_msg);
-    console.log("collect_question: "+collect_question);
+    //console.log("say_err_msg: "+Memory.say_err_msg);
+    //console.log("collect_question: "+collect_question);
    
     if ( Memory.payment_method === 'credit card' ) {
       Collect = {
