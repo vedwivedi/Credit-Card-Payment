@@ -92,7 +92,7 @@
       }
   }
 
-console.log(JSON.stringify(responseObject));
+//console.log(JSON.stringify(responseObject));
   // return twilio function response
   callback(null, responseObject);
 }
