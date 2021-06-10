@@ -1,5 +1,5 @@
 {
-  "name": "Credit-Card-Payment",
+  "name": "NordisPaymentAPI-EBO",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -9,11 +9,13 @@
   },
   "dependencies": {
     "twilio-run": "^2.6.0",
-    "card-validator": "^8.1.0"
+    "axios": "^0.21.0",
+    "dateformat": ""
   },
   "devDependencies": {
     "twilio-run": "^2.6.0",
-    "card-validator": "^8.1.0"
+    "axios": "^0.21.0",
+    "dateformat": ""
   },
   "engines": {
     "node": "12"
