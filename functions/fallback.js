@@ -16,7 +16,7 @@ exports.fallback = async function (context, event, callback) {
   console.log('Fallback Triggered.');
 
   const Memory = JSON.parse(event.Memory);
-  console.log("Memory: " + JSON.stringify(Memory));
+  //console.log("Memory: " + JSON.stringify(Memory));
   const from_task = Memory.from_task;
   console.log('count: ' + Number(Memory.task_fail_counter));
   if ((Memory.task_fail_counter === undefined)) // new line add
@@ -24,7 +24,7 @@ exports.fallback = async function (context, event, callback) {
   else
     Remember.task_fail_counter = Number(Memory.task_fail_counter) + 1;
   let counter = Number(Memory.task_fail_counter);
-  console.log('Memory.task_fail_counter: ' + counter);
+  //console.log('Memory.task_fail_counter: ' + counter);
   if (counter > 3) {
     Say = false;
     Listen = false;

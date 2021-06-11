@@ -10,12 +10,12 @@ exports.check_exp_date = async function (context, event, callback) {
     let Tasks = false;
     let Redirect = false;
     let Handoff = false;
-    console.log("check_exp_date initiated");
+    //console.log("check_exp_date initiated");
     const Memory = JSON.parse(event.Memory);
 
     Remember.from_task = "check_exp_date";
     Remember.repeat = false;
-    console.log("task_fail_counter: " + Memory.task_fail_counter)
+    //console.log("task_fail_counter: " + Memory.task_fail_counter)
     const { CurrentInput } = event;
 
 
@@ -48,39 +48,45 @@ exports.check_exp_date = async function (context, event, callback) {
 
       }
       else if (exp_date.toString().length < 6) {
-        StrMonth = 0;
-        StrYear = 0;
+        // StrMonth = 0;
+        // StrYear = 0;
 
-        formatted_date = StrYear.toString() + '-' + StrMonth.toString();
+        // formatted_date = StrYear.toString() + '-' + StrMonth.toString();
+        StrMonth = exp_date.substring(0, (exp_date.length - 2));
+        StrYear = '20' + exp_date.substring((exp_date.length - 2), exp_date.length);
+
+        //console.log('CurrentInputMonth: ' + StrMonth);
+        //console.log('CurrentInputYear: ' + StrYear);
+        formatted_date = StrYear + '-' + StrMonth;
       }
       else {
         let D_Date = new Date(exp_date);
-        console.log('exp_date: ' + exp_date);
+        //console.log('exp_date: ' + exp_date);
         StrMonth = D_Date.getMonth() + 1;     //Get the month as a number (0-11)
         StrYear = D_Date.getFullYear();       //Get the year as a four digit number (yyyy)
         StrDay = D_Date.getDate();            //Get Day as a number (1-31)
-        console.log('strMonth: ' + StrMonth);
-        console.log('strYear: ' + StrYear);
-        console.log('day' + D_Date.getDate());  //Get the day as a number (1-31)
+        // console.log('strMonth: ' + StrMonth);
+        // console.log('strYear: ' + StrYear);
+        // console.log('day' + D_Date.getDate());  //Get the day as a number (1-31)
         formatted_date = StrYear + '-' + StrMonth;
       }
 
-      console.log("formatted_date-4-dgts:" + formatted_date);
+      //console.log("formatted_date-4-dgts:" + formatted_date);
       let validDate = valid.expirationDate(formatted_date).isValid;
-      console.log("validDate check before exceptional case:" + validDate);
+      //console.log("validDate check before exceptional case:" + validDate);
       /// Code for 4/3 digit current input///////////
       if ((CurrentInput.length === 4 || CurrentInput.length === 3) && validDate === false) {    //Input  Example: 1125, 125
         StrMonth = CurrentInput.substring(0, (CurrentInput.length - 2));
         StrYear = '20' + CurrentInput.substring((CurrentInput.length - 2), CurrentInput.length);
 
-        console.log('CurrentInputMonth: ' + StrMonth);
-        console.log('CurrentInputYear: ' + StrYear);
+        // console.log('CurrentInputMonth: ' + StrMonth);
+        // console.log('CurrentInputYear: ' + StrYear);
         formatted_date = StrYear + '-' + StrMonth;
       }
-      else if (validDate === true && (!(CurrentInput.includes(StrYear)))) {       //Input  Example: November 26th
+      else if (validDate === true && CurrentInput.toString().length!=0 && (!(CurrentInput.includes(StrYear)))) {       //Input  Example: November 26th
         StrYear = '20' + StrDay;
         formatted_date = StrYear + '-' + StrMonth;
-        console.log('CurrentInputYearNonDigit: ' + StrYear);
+        //console.log('CurrentInputYearNonDigit: ' + StrYear);
 
       }
       validDate = valid.expirationDate(formatted_date).isValid;

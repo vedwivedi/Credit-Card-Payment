@@ -9,10 +9,10 @@ exports.check_cvv = async function (context, event, callback) {
         let Redirect = false;
         let Handoff = false;
 
-        console.log("check_cvv initiated");
+        //console.log("check_cvv initiated");
         const Memory = JSON.parse(event.Memory);
         Remember.repeat = false;
-        console.log("task_fail_counter: " + Memory.task_fail_counter);
+        //console.log("task_fail_counter: " + Memory.task_fail_counter);
         Remember.from_task = "check_cvv";
 
         let cvv;
@@ -20,7 +20,7 @@ exports.check_cvv = async function (context, event, callback) {
             cvv = Memory.twilio.collected_data.collect_cvv.answers.card_cvv.answer;
         }
         catch (err) {
-            console.log("catch: " + err);
+            //console.log("catch: " + err);
             cvv = "";
         }
         if (Memory.task_fail_counter <= 3) {
